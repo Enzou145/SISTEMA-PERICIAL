@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistema Pericial</title>
+    <link rel="stylesheet" href="calendario.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <!-- BARRA LATERAL -->
+    <aside class="barra-lateral">
+        <div class="barra-logo">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
+            Sistema Pericial
+        </div>
+        <nav class="barra-navegacion" id="sidebar-nav">
+            <a href="#" class="elemento-nav" data-rol="mesa de entrada">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg>
+                Dashboard
+            </a>
+            <a href="recepcion.html" class="elemento-nav" data-rol="mesa de entrada">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+                Recepción
+            </a>
+            <a href="asignacion.html" class="elemento-nav" data-rol="mesa de entrada">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                Asignaciones
+            </a>
+            <a href="consulta.html" class="elemento-nav">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+                Consultas
+            </a>
+            <a href="calendario.html" class="elemento-nav activo">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+                Calendario
+            </a>
+        </nav>
+    </aside>
+
+    <!-- CONTENIDO PRINCIPAL -->
+    <main class="contenido-principal">
+
+        <!-- BARRA SUPERIOR -->
+        <header class="cabecera">
+            <div class="cabecera-izq">
+                <h2 class="cabecera-titulo">Calendario</h2>
+            </div>
+            <div class="cabecera-der">
+                <div class="usuario-card">
+                    <div class="usuario-avatar">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                    </div>
+                    <div class="usuario">
+                        <span class="usuario-nombre">Administrador</span>
+                        <span class="usuario-rol">Mesa de Entrada</span>
+                    </div>
+                </div>
+                <button class="btn-logout" type="button" title="Cerrar sesión">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></svg>
+                    Salir
+                </button>
+            </div>
+        </header>
+
+        <!-- ENCABEZADO DE PÁGINA -->
+        <div class="encabezado-pagina">
+            <h1 class="titulo-pagina">Calendario de Oficios</h1>
+            <p class="subtitulo-pagina">Agenda de asignaciones y seguimiento</p>
+        </div>
+
+        <!-- TARJETA CALENDARIO -->
+        <div class="tarjeta-calendario">
+
+            <!-- LEYENDA DE PRIORIDADES -->
+            <div class="leyenda-prioridades">
+                <span class="etiqueta-leyenda">Prioridades:</span>
+                <span class="elemento-leyenda"><span class="punto punto-rojo"></span> Urgente</span>
+                <span class="elemento-leyenda"><span class="punto punto-naranja"></span> Alta</span>
+                <span class="elemento-leyenda"><span class="punto punto-azul"></span> Normal</span>
+            </div>
+
+            <!-- CONTROLES DEL CALENDARIO -->
+            <div class="controles-calendario">
+                <div class="navegacion-cal">
+                    <button class="boton-cal" onclick="irAHoy()">Hoy</button>
+                    <button class="boton-cal" onclick="cambiarMes(-1)">Anterior</button>
+                    <button class="boton-cal" onclick="cambiarMes(1)">Siguiente</button>
+                </div>
+                <h2 class="titulo-mes" id="titulo-mes">Mes Año</h2>
+                <div class="vistas-cal" style="display:flex; align-items:center; gap: 10px;">
+                    <label for="filtro-perito" style="font-size: 13px; font-weight: 500;">Perito:</label>
+                    <select id="filtro-perito" class="boton-cal" style="background: white; cursor:pointer;" onchange="renderizarCalendario()">
+                        <option value="">Todos</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- GRILLA DEL CALENDARIO -->
+            <div class="grilla-calendario" id="grilla-calendario">
+                <!-- Se llenará dinámicamente con JS -->
+            </div>
+
+        </div>
+    </main>
+
+    <!-- MODAL -->
+    <div class="fondo-modal" id="modal" onclick="cerrarModal(event)">
+        <div class="caja-modal">
+            <div class="encabezado-modal">
+                <h3 class="titulo-modal">Detalle del Oficio</h3>
+                <button class="boton-cerrar modal-close" onclick="cerrarModal()">✕</button>
+            </div>
+
+            <div class="seccion-modal">
+                <div class="etiqueta-seccion">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                    PERITO ASIGNADO
+                </div>
+                <p class="nombre-perito">Juan Pérez</p>
+                <p class="fecha-perito">
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                    Asignado el: 18/06/2026 a las 10:00
+                </p>
+            </div>
+
+            <div class="seccion-modal">
+                <div class="etiqueta-seccion">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+                    INFORMACIÓN DE LA CAUSA
+                </div>
+                <div class="grilla-info">
+                    <div class="fila-info">
+                        <span class="etiqueta-info">Número Interno:</span>
+                        <span class="valor-info">OF-2024-001</span>
+                    </div>
+                    <div class="fila-info">
+                        <span class="etiqueta-info">Número de Legajo:</span>
+                        <span class="valor-info">LEG-001</span>
+                    </div>
+                    <div class="fila-info ancho-completo">
+                        <span class="etiqueta-info">Carátula:</span>
+                        <span class="valor-info negrita">Caso de prueba para calendario</span>
+                    </div>
+                    <div class="fila-info">
+                        <span class="etiqueta-info">Fiscal:</span>
+                        <span class="valor-info enlace">Dr. Rodríguez</span>
+                    </div>
+                    <div class="fila-info">
+                        <span class="etiqueta-info">Tipo de Causa:</span>
+                        <span class="valor-info">Fraude</span>
+                    </div>
+                    <div class="fila-info">
+                        <span class="etiqueta-info">Año:</span>
+                        <span class="valor-info">2024</span>
+                    </div>
+                    <div class="fila-info">
+                        <span class="etiqueta-info">Prioridad:</span>
+                        <span class="insignia insignia-roja">Urgente</span>
+                    </div>
+                    <div class="fila-info">
+                        <span class="etiqueta-info">Estado:</span>
+                        <span class="insignia insignia-azul">En proceso</span>
+                    </div>
+                    <div class="fila-info">
+                        <span class="etiqueta-info">Fecha de Ingreso:</span>
+                        <span class="valor-info">2024-06-17</span>
+                    </div>
+                    <div class="fila-info">
+                        <span class="etiqueta-info">Fecha de Apertura:</span>
+                        <span class="valor-info">2024-06-17</span>
+                    </div>
+                    <div class="fila-info">
+                        <span class="etiqueta-info">Hora de Apertura:</span>
+                        <span class="valor-info">10:00</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="auth.js"></script>
+    <script src="calendario.js"></script>
+
+</body>
+</html>

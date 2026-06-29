@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistema Pericial - Asignaciones</title>
+    <link rel="stylesheet" href="asignacion.css">
+</head>
+<body>
+
+    <div class="layout">
+
+        <!-- SIDEBAR -->
+        <nav class="sidebar" id="sidebar-nav">
+            <div class="sidebar-logo">Sistema Pericial</div>
+            <ul class="sidebar-menu">
+                <li><a href="#" class="menu-item" data-rol="mesa de entrada">
+                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg>
+                    Dashboard
+                </a></li>
+                <li><a href="recepcion.html" class="menu-item" data-rol="mesa de entrada">
+                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+                    Recepción
+                </a></li>
+                <li><a href="asignacion.html" class="menu-item activo" data-rol="mesa de entrada">
+                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                    Asignaciones
+                </a></li>
+                <li><a href="consulta.html" class="menu-item">
+                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+                    Consultas
+                </a></li>
+                <li><a href="calendario.html" class="menu-item">
+                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+                    Calendario
+                </a></li>
+            </ul>
+        </nav>
+
+        <!-- CONTENIDO DERECHO -->
+        <div class="contenido">
+
+            <!-- TOP BAR -->
+            <header class="cabecera">
+                <div class="cabecera-izq">
+                    <h2 class="cabecera-titulo">Asignación de Peritos</h2>
+                </div>
+                <div class="cabecera-der">
+                    <div class="usuario-card">
+                        <div class="usuario-avatar">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                        </div>
+                        <div class="usuario">
+                            <span class="usuario-nombre">Administrador</span>
+                            <span class="usuario-rol">Mesa de Entrada</span>
+                        </div>
+                    </div>
+                    <button class="btn-logout" type="button" title="Cerrar sesión">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></svg>
+                        Salir
+                    </button>
+                </div>
+            </header>
+
+            <!-- CUERPO -->
+            <main class="cuerpo">
+
+                <!-- Título de página -->
+                <div class="pagina-header">
+                    <h1 class="pagina-titulo">Asignación de Peritos</h1>
+                    <p class="pagina-subtitulo">Gestión de carga de trabajo</p>
+                </div>
+
+                <!-- SECCIÓN: Carga de trabajo por perito -->
+                <section class="seccion">
+                    <h2 class="seccion-titulo">Carga de Trabajo por Perito</h2>
+
+                    <div class="peritos-grilla">
+
+                        <!-- Tarjeta Perito 1 -->
+                        <div class="perito-tarjeta">
+                            <div class="perito-header">
+                                <div class="perito-info">
+                                    <span class="perito-icono">◎</span>
+                                    <div>
+                                        <p class="perito-nombre">Juan Pérez</p>
+                                        <p class="perito-email">perito1@mpf.gov.ar</p>
+                                    </div>
+                                </div>
+                                <span class="badge-libre">Libre</span>
+                            </div>
+                            <div class="perito-casos">
+                                <span class="casos-icono">▤</span>
+                                <span class="casos-texto">0 casos asignados</span>
+                            </div>
+                        </div>
+
+                        <!-- Tarjeta Perito 2 -->
+                        <div class="perito-tarjeta">
+                            <div class="perito-header">
+                                <div class="perito-info">
+                                    <span class="perito-icono">◎</span>
+                                    <div>
+                                        <p class="perito-nombre">María García</p>
+                                        <p class="perito-email">perito2@mpf.gov.ar</p>
+                                    </div>
+                                </div>
+                                <span class="badge-libre">Libre</span>
+                            </div>
+                            <div class="perito-casos">
+                                <span class="casos-icono">▤</span>
+                                <span class="casos-texto">0 casos asignados</span>
+                            </div>
+                        </div>
+
+                    </div>
+                </section>
+
+                <!-- SECCIÓN: Oficios Pendientes -->
+                <section class="seccion">
+                    <h2 class="seccion-titulo">Oficios Pendientes de Asignación (0)</h2>
+
+                    <div class="tabla-wrapper">
+                        <table class="tabla">
+                            <thead>
+                                <tr>
+                                    <th>Nº Interno</th>
+                                    <th>Carátula</th>
+                                    <th>Fiscal</th>
+                                    <th>Prioridad</th>
+                                    <th>Estado</th>
+                                    <th>Asignación / Fecha de Apertura</th>
+                                    <th>Acción</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr class="fila-vacia">
+                                    <td colspan="7">
+                                        <div class="estado-vacio">
+                                            <span class="icono-check">✓</span>
+                                            <p>Todos los oficios están asignados</p>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </section>
+
+                <!-- SECCIÓN: Oficios Asignados -->
+                <section class="seccion">
+                    <h2 class="seccion-titulo">Oficios Asignados (0)</h2>
+
+                    <div class="tabla-wrapper">
+                        <table class="tabla">
+                            <thead>
+                                <tr>
+                                    <th>Nº Interno</th>
+                                    <th>Carátula</th>
+                                    <th>Fiscal</th>
+                                    <th>Prioridad</th>
+                                    <th>Estado</th>
+                                    <th>Perito Asignado</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr class="fila-vacia">
+                                    <td colspan="6">No hay oficios asignados</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </section>
+
+            </main>
+        </div>
+    </div>
+
+    <!-- Modal Detalles Oficio -->
+    <div id="modalDetalles" class="modal" hidden>
+        <div class="modal-content" role="dialog" aria-modal="true">
+            <div class="modal-header">
+                <h2>Detalles del Oficio</h2>
+                <button class="modal-close" type="button" aria-label="Cerrar modal" onclick="cerrarModalDetalles()">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="form-grid form-grid-two">
+                    <div class="form-group">
+                        <label>Número Interno</label>
+                        <div id="det-numero" class="detalle-valor"></div>
+                    </div>
+                    <div class="form-group">
+                        <label>Legajo Judicial</label>
+                        <div id="det-legajo" class="detalle-valor"></div>
+                    </div>
+                    <div class="form-group form-full">
+                        <label>Carátula</label>
+                        <div id="det-caratula" class="detalle-valor"></div>
+                    </div>
+                    <div class="form-group">
+                        <label>Fiscal a Cargo</label>
+                        <div id="det-fiscal" class="detalle-valor"></div>
+                    </div>
+                    <div class="form-group">
+                        <label>Tipo de Causa</label>
+                        <div id="det-tipo-causa" class="detalle-valor"></div>
+                    </div>
+                    <div class="form-group">
+                        <label>Perito Asignado</label>
+                        <div id="det-perito" class="detalle-valor"></div>
+                    </div>
+                    <div class="form-group">
+                        <label>Estado</label>
+                        <div id="det-estado" class="detalle-valor"></div>
+                    </div>
+                    <div class="form-group">
+                        <label>Prioridad</label>
+                        <div id="det-prioridad" class="detalle-valor"></div>
+                    </div>
+                    <div class="form-group form-full">
+                        <label>Info Asignación</label>
+                        <div id="det-puntos" class="detalle-valor" style="white-space: pre-wrap;"></div>
+                    </div>
+                    <div class="form-group form-full">
+                        <label>Dispositivos (Detalle de Elementos)</label>
+                        <div id="det-dispositivos" class="detalle-valor" style="white-space: pre-wrap;"></div>
+                    </div>
+                    <div class="form-group form-full" id="det-documento-container">
+                        <label>Documento PDF</label>
+                        <div class="detalle-valor">
+                            <a id="det-documento" href="#" target="_blank" style="color: #00875a; font-weight: 600; text-decoration: none;">Ver PDF Original</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-actions modal-actions-end">
+                <button class="btn-modal btn-secondary" type="button" onclick="cerrarModalDetalles()">Cerrar</button>
+            </div>
+        </div>
+    </div>
+
+</body>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="auth.js"></script>
+<script src="asignacion.js"></script>
+</html>

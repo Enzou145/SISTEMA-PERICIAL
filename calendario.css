@@ -1,0 +1,561 @@
+*, *::before, *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --fondo: #f5f5f5;
+    --texto: #1a1a1a;
+    --texto-suave: #888;
+    --borde: #e2e2e2;
+    --blanco: #ffffff;
+    --fondo-barra: #ffffff;
+    --texto-barra: #3a3a3a;
+    --texto-barra-activo: #ffffff;
+    --borde-barra: #ebebeb;
+    --activo-bg: #1a1a1a;
+    --rojo: #E53E3E;
+    --naranja: #ED8936;
+    --azul: #4299E1;
+    --azul-claro: #EBF8FF;
+    --azul-texto: #2B6CB0;
+    --radio: 6px;
+    --fuente: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+
+body {
+    font-family: var(--fuente);
+    background-color: var(--fondo);
+    color: var(--texto);
+    display: flex;
+    min-height: 100vh;
+    -webkit-font-smoothing: antialiased;
+}
+
+/* ─── BARRA LATERAL ─── */
+.barra-lateral {
+    width: 220px;
+    min-width: 155px;
+    min-height: 100vh;
+    background: var(--fondo-barra);
+    border-right: 1px solid var(--borde);
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 50;
+}
+
+.barra-logo {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--texto);
+    font-weight: 700;
+    font-size: 12.5px;
+    padding: 16px 14px 18px 14px;
+    border-bottom: 1px solid var(--borde-barra);
+    letter-spacing: 0.01em;
+}
+
+.barra-navegacion {
+    display: flex;
+    flex-direction: column;
+    padding: 12px 0;
+}
+
+.elemento-nav {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    padding: 8px 14px;
+    color: var(--texto-barra);
+    text-decoration: none;
+    font-size: 12.5px;
+    transition: background 0.12s, color 0.12s;
+}
+
+.elemento-nav:hover {
+    background-color: #f0f0f0;
+    color: var(--texto);
+}
+
+.elemento-nav.activo {
+    background-color: var(--activo-bg);
+    color: var(--texto-barra-activo);
+    font-weight: 500;
+}
+
+/* ─── CONTENIDO PRINCIPAL ─── */
+.contenido-principal {
+    margin-left: 220px;
+    flex: 1;
+    min-height: 100vh;
+    padding: 0 32px 40px 32px;
+    background: var(--fondo);
+}
+
+/* ───── BARRA SUPERIOR ───── */
+.cabecera {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 24px;
+    background-color: var(--blanco);
+    border-bottom: 1px solid var(--borde);
+    min-height: 56px;
+    margin-bottom: 28px;
+    margin-left: -32px;
+    margin-right: -32px;
+}
+
+.cabecera-izq {
+    display: flex;
+    align-items: center;
+}
+
+.cabecera-titulo {
+    font-size: 14px;
+    font-weight: 600;
+    color: #555;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.cabecera-der {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.usuario-card {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.usuario-avatar {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background-color: #f0f0f0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #666;
+    border: 1px solid var(--borde);
+}
+
+.usuario {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    line-height: 1.2;
+}
+
+.usuario-nombre {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--texto);
+}
+
+.usuario-rol {
+    font-size: 11px;
+    color: var(--texto-suave);
+    font-weight: 500;
+}
+
+.btn-logout {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    background: none;
+    border: 1px solid var(--borde);
+    cursor: pointer;
+    color: #555555;
+    padding: 6px 12px;
+    font-size: 12.5px;
+    font-weight: 600;
+    border-radius: 4px;
+    transition: all 0.2s ease;
+}
+
+.btn-logout:hover {
+    background-color: #fef2f2;
+    color: var(--rojo);
+    border-color: #fecaca;
+}
+
+/* ───── ENCABEZADO DE PÁGINA ───── */
+.encabezado-pagina {
+    margin-bottom: 20px;
+}
+
+.titulo-pagina {
+    font-size: 1.6rem;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    color: var(--texto);
+    line-height: 1.2;
+}
+
+.subtitulo-pagina {
+    font-size: 0.82rem;
+    color: var(--texto-suave);
+    margin-top: 4px;
+}
+
+/* ───── TARJETA CALENDARIO ───── */
+.tarjeta-calendario {
+    background: var(--blanco);
+    border: 1px solid var(--borde);
+    border-radius: 10px;
+    padding: 20px 24px 24px;
+}
+
+/* ───── LEYENDA DE PRIORIDADES ───── */
+.leyenda-prioridades {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 18px;
+    flex-wrap: wrap;
+}
+
+.etiqueta-leyenda {
+    font-size: 0.78rem;
+    font-weight: 600;
+    color: var(--texto);
+}
+
+.elemento-leyenda {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 0.78rem;
+    color: var(--texto);
+}
+
+.punto {
+    width: 10px;
+    height: 10px;
+    border-radius: 2px;
+    display: inline-block;
+}
+
+.punto-rojo    { background: var(--rojo); }
+.punto-naranja { background: var(--naranja); }
+.punto-azul    { background: var(--azul); }
+
+/* ───── CONTROLES DEL CALENDARIO ───── */
+.controles-calendario {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 16px;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+.navegacion-cal,
+.vistas-cal {
+    display: flex;
+    gap: 4px;
+}
+
+.boton-cal {
+    padding: 5px 12px;
+    border: 1px solid var(--borde);
+    background: var(--blanco);
+    border-radius: var(--radio);
+    font-size: 0.78rem;
+    font-family: var(--fuente);
+    cursor: pointer;
+    color: var(--texto);
+    transition: background 0.15s, border-color 0.15s;
+}
+
+.boton-cal:hover {
+    background: #f0f0ee;
+}
+
+.boton-cal.vista-activa {
+    background: var(--texto);
+    color: var(--blanco);
+    border-color: var(--texto);
+}
+
+.titulo-mes {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--texto);
+    text-align: center;
+    flex: 1;
+}
+
+/* ───── GRILLA DEL CALENDARIO ───── */
+.grilla-calendario {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    border-left: 1px solid var(--borde);
+    border-top: 1px solid var(--borde);
+}
+
+.encabezado-dia {
+    border-right: 1px solid var(--borde);
+    border-bottom: 1px solid var(--borde);
+    padding: 8px 10px;
+    font-size: 0.72rem;
+    font-weight: 600;
+    color: var(--texto-suave);
+    text-align: center;
+    letter-spacing: 0.05em;
+    background: #fafaf8;
+}
+
+.celda-dia {
+    border-right: 1px solid var(--borde);
+    border-bottom: 1px solid var(--borde);
+    min-height: 90px;
+    padding: 6px 8px;
+    cursor: default;
+    transition: background 0.1s;
+    position: relative;
+}
+
+.celda-dia:hover {
+    background: #fafaf8;
+}
+
+.celda-dia.fuera-mes {
+    background: #f5f5f3;
+}
+
+.celda-dia.fuera-mes .numero-dia {
+    color: #bbb;
+}
+
+.celda-dia.hoy {
+    background: var(--azul-claro);
+    cursor: pointer;
+}
+
+.numero-dia {
+    font-size: 0.78rem;
+    font-weight: 500;
+    color: #555;
+    display: block;
+    margin-bottom: 4px;
+}
+
+.numero-hoy {
+    color: var(--azul-texto);
+    font-weight: 700;
+}
+
+/* ───── EVENTOS ───── */
+.evento {
+    font-size: 0.68rem;
+    font-weight: 500;
+    padding: 2px 6px;
+    border-radius: 3px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    cursor: pointer;
+    margin-top: 2px;
+}
+
+.evento-rojo    { background: var(--rojo);    color: white; }
+.evento-naranja { background: var(--naranja); color: white; }
+.evento-azul    { background: var(--azul);    color: white; }
+
+/* ───── MODAL ───── */
+.fondo-modal {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.45);
+    z-index: 200;
+    align-items: center;
+    justify-content: center;
+}
+
+.fondo-modal.visible {
+    display: flex;
+}
+
+.caja-modal {
+    background: var(--blanco);
+    border-radius: 10px;
+    width: 100%;
+    max-width: 420px;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.18);
+    overflow: hidden;
+    animation: deslizar-arriba 0.2s ease;
+}
+
+@keyframes deslizar-arriba {
+    from { transform: translateY(12px); opacity: 0; }
+    to   { transform: translateY(0);    opacity: 1; }
+}
+
+.encabezado-modal {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px 20px;
+    border-bottom: 1px solid var(--borde);
+}
+
+.titulo-modal {
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--texto);
+}
+
+.boton-cerrar {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 1rem;
+    color: var(--texto-suave);
+    width: 28px;
+    height: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: var(--radio);
+    transition: background 0.15s;
+}
+
+.boton-cerrar:hover {
+    background: #f0f0ee;
+}
+
+.seccion-modal {
+    padding: 16px 20px;
+    border-bottom: 1px solid #f0f0ee;
+}
+
+.seccion-modal:last-child {
+    border-bottom: none;
+}
+
+.etiqueta-seccion {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.68rem;
+    font-weight: 700;
+    color: var(--texto-suave);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+}
+
+.nombre-perito {
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--texto);
+    margin-bottom: 4px;
+}
+
+.fecha-perito {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 0.78rem;
+    color: var(--texto-suave);
+}
+
+/* ───── GRILLA DE INFORMACIÓN ───── */
+.grilla-info {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px 12px;
+}
+
+.fila-info {
+    display: flex;
+    flex-direction: column;
+    gap: 1px;
+}
+
+.fila-info.ancho-completo {
+    grid-column: 1 / -1;
+}
+
+.etiqueta-info {
+    font-size: 0.68rem;
+    color: var(--texto-suave);
+    font-weight: 500;
+}
+
+.valor-info {
+    font-size: 0.8rem;
+    color: var(--texto);
+}
+
+.valor-info.negrita {
+    font-weight: 600;
+}
+
+.valor-info.enlace {
+    color: var(--azul-texto);
+    font-weight: 500;
+}
+
+/* ───── INSIGNIAS ───── */
+.insignia {
+    display: inline-block;
+    padding: 2px 8px;
+    border-radius: 4px;
+    font-size: 0.7rem;
+    font-weight: 600;
+    width: fit-content;
+    margin-top: 2px;
+}
+
+.insignia-roja {
+    background: #FFF5F5;
+    color: var(--rojo);
+    border: 1px solid #FED7D7;
+}
+
+.insignia-azul {
+    background: var(--azul-claro);
+    color: var(--azul-texto);
+    border: 1px solid #BEE3F8;
+}
+
+.insignia-verde {
+    background: #C6F6D5;
+    color: #276749;
+}
+
+/* ───── RESPONSIVE ───── */
+@media (max-width: 768px) {
+    .barra-lateral {
+        width: 120px;
+    }
+    .contenido-principal {
+        margin-left: 120px;
+        padding: 0 16px 40px 16px;
+    }
+    .controles-calendario {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .titulo-mes {
+        text-align: left;
+    }
+    .grilla-info {
+        grid-template-columns: 1fr;
+    }
+    .fila-info.ancho-completo {
+        grid-column: 1;
+    }
+}

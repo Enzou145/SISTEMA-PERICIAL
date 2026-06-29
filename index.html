@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistema de Gestión Pericial</title>
+    <link rel="stylesheet" href="login.css">
+</head>
+<body>
+    <main class="login-page">
+        <section class="login-card" aria-labelledby="login-title">
+            <header class="login-header">
+                <h1 id="login-title">Sistema de Gestión Pericial</h1>
+                <p>Ministerio Público Fiscal</p>
+            </header>
+
+            <form class="login-form" id="loginForm">
+                <div class="form-field">
+                    <label for="email">Correo electrónico</label>
+                    <input
+                        type="email"
+                        id="email"
+                        placeholder="usuario@mpf.gov.ar"
+                        autocomplete="email"
+                        required
+                    >
+                </div>
+
+                <div class="form-field">
+                    <label for="password">Contraseña</label>
+                    <input
+                        type="password"
+                        id="password"
+                        autocomplete="current-password"
+                        required
+                    >
+                </div>
+
+                <button class="login-button" type="submit">
+                    <svg aria-hidden="true" viewBox="0 0 24 24">
+                        <path d="M10 17l5-5-5-5M15 12H3M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4"/>
+                    </svg>
+                    <span>Iniciar sesión</span>
+                </button>
+            </form>
+
+            <p class="register-text">
+                ¿Necesitas acceso? <a href="#">Registrarse</a>
+            </p>
+        </section>
+
+        <aside class="test-credentials" aria-label="Credenciales de prueba">
+            <strong>Credenciales de prueba:</strong>
+            <span>Admin: admin@mpf.gov.ar / Admin123!</span>
+            <span>Perito: perito1@mpf.gov.ar / Perito123!</span>
+            <span>Coordinador: coordinador@mpf.gov.ar / Coord123!</span>
+        </aside>
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="auth.js"></script>
+    <script>
+        document.getElementById('loginForm').addEventListener('submit', async function(e) {
+            e.preventDefault();
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+            const success = await login(email, password);
+            if (success) {
+                const user = getCurrentUser();
+                if (user.role === 'coordinador') {
+                    window.location.href = 'consulta.html';
+                } else {
+                    window.location.href = 'recepcion.html';
+                }
+            } else {
+                alert('Credenciales incorrectas');
+            }
+        });
+        
+        document.addEventListener('DOMContentLoaded', () => {
+            const user = getCurrentUser();
+            if (user) {
+                if (user.role === 'coordinador') {
+                    window.location.href = 'consulta.html';
+                } else {
+                    window.location.href = 'recepcion.html';
+                }
+            }
+        });
+    </script>
+</body>
+</html>
